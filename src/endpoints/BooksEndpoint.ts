@@ -1,3 +1,4 @@
+import { AxiosStatic } from "axios";
 import { 
   BookParamDownload, 
   BookParamFilter, 
@@ -38,8 +39,8 @@ export interface IBooksEndpoint {
   ) => Promise<IGetListResponse>
 }
 
-export const BooksEndpoint = (): IBooksEndpoint => {
-  const INSTANCE = AxiosInstances.find(NameAPI.Google_Book);
+export const BooksEndpoint = (forceInstance?: AxiosStatic): IBooksEndpoint => {
+  const INSTANCE = AxiosInstances.find(NameAPI.Google_Book) || forceInstance;
 
   const getList = async (
     paramsRequest: IGoogleBooksApiParams

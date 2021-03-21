@@ -27,12 +27,10 @@ class Instances implements IAxiosInstances {
     return this.instances.set(name, instance)
   }
 
-  public find(name: string): AxiosInstance | undefined  {
+  public find(name: string): AxiosInstance | undefined {
     const instance = this.instances.get(name);
-    if(instance) {
-      
-    }
-    return this.instances.get(name);
+
+    return instance;
   }
 }
 
